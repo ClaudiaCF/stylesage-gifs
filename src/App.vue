@@ -66,18 +66,27 @@ export default {
 
 <style lang="scss">
 //I usually follow this https://css-tricks.com/poll-results-how-do-you-order-your-css-properties/
+$fixed-parts-height: 40px;
+
 .app {
   display: flex;
   flex-direction: column;
+  position: relative;
   height: 100vh;
 
   &__header,
   &__footer {
+    position: absolute;
     display: flex;
     align-items: center;
     width: 100%;
-    height: 40px;
+    height: $fixed-parts-height;
     background-color: darkgrey;
+  }
+
+  &__header {
+    top: 0;
+    left: 0;
   }
 
   &__header-texts-wrapper {
@@ -88,10 +97,10 @@ export default {
   }
 
   &__content {
-    flex: 1;
     overflow-y: scroll;
     height: 100%;
     padding: 0 10px;
+    margin: $fixed-parts-height 0;
   }
 
   &__gifs {
